@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -e # Exit immediately if a command exits with a non-zero status
 
 echo "Downloading Spaceship Titanic dataset from Kaggle..."
 mkdir -p ./data # Create data directory if it doesn't exist
