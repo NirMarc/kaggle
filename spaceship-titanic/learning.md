@@ -11,3 +11,8 @@
 - train.info() -> Total number of rows, real type of cols, missing values inside rows (Which later we will dive deeper)
 - df_train[TARGET].value_counts() -> How True/False? Balanced/Imbalanced? Does it matter?
 - Check missing values- How much is missing?
+
+#### Second step- EXPLORE patterns
+- Pick a feature:
+    - Before running any code! Make an hypothesis- Do you expect this feature to affect your target label? Why?
+    - Check distribution (histogram at first)- What shape do you see? Any outliers?
