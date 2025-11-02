@@ -32,3 +32,4 @@
 - Do a data audit- what coloumns do I have? what are their types? It's going to affect directly how I normalize and encode the features.
 - Always use drop_first=True-> you need k-1 binary cols to represent k categories!
 - Always align at the end-> Sometimes there are missing categories at the test set (like "unknown" for something), align makes sure you will have the same number of features in test as in train.
+- Pretty easy trying models when just calling their API. It seems after trying all this models + grid search that the most important thing is a good feature enigneering.
