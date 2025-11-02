@@ -32,6 +32,11 @@ spaceship-titanic/
 │   └── 02_modeling.ipynb            # Model training & evaluation
 ├── submissions/
 │   └── submission_xgboost.csv       # Final submission
+├── deployment/
+│   ├── app.py                       # Streamlit web app
+│   ├── spaceship_model.pkl          # Trained XGBoost model
+│   ├── scaler.pkl                   # Fitted StandardScaler
+│   └── feature_names.json           # Expected feature names
 ├── donwload-data.sh                 # Script to download Kaggle data
 ├── requirements.txt                 # Python dependencies
 ├── utils.py                         # Preprocessing pipeline
@@ -150,6 +155,7 @@ Passengers in CryoSleep had $0 spending across all amenities. The `Is_Spender` f
 - **Data Analysis:** pandas, numpy
 - **Visualization:** matplotlib, seaborn
 - **Machine Learning:** scikit-learn, XGBoost, LightGBM
+- **Deployment:** Streamlit (interactive web app)
 - **Environment:** Jupyter Notebooks, VS Code
 
 ---
@@ -184,6 +190,37 @@ Open `notebooks/01_eda.ipynb` to explore the analysis.
 Run [notebooks/02_modeling.ipynb](notebooks/02_modeling.ipynb) to train the model and generate submission file.
 
 **Note:** The modeling notebook uses the `prepare_data()` function from [utils.py](utils.py) to ensure consistent preprocessing between training and test data.
+
+---
+
+## 🌐 Interactive Web App
+
+Try out the model with a **live Streamlit web app**! Input passenger details and get instant predictions.
+
+### Launch the App
+```bash
+streamlit run deployment/app.py
+```
+
+The app will open in your browser at `http://localhost:8501`
+
+### Features
+- **Interactive form** for passenger details (Home Planet, Age, Cabin, Spending, etc.)
+- **Real-time predictions** using the trained XGBoost model
+- **Confidence scores** showing prediction probability
+- **User-friendly interface** with emoji indicators
+
+### How It Works
+1. Enter passenger information through the form
+2. Click "Predict" button
+3. Get instant prediction: TRANSPORTED or NOT TRANSPORTED
+4. View confidence percentage for the prediction
+
+The app applies the same preprocessing pipeline used during training:
+- Feature engineering (Age_Group, Is_Spender, Cabin parsing, etc.)
+- One-hot encoding of categorical features
+- StandardScaler normalization
+- Feature alignment to match training data
 
 ---
 
