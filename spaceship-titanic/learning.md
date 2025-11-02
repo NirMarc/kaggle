@@ -16,3 +16,19 @@
 - Pick a feature:
     - Before running any code! Make an hypothesis- Do you expect this feature to affect your target label? Why?
     - Check distribution (histogram at first)- What shape do you see? Any outliers?
+    - Check corrlation of feature by Target
+    - Check Target rate by feature (groupby and then valuecount)
+- Try to see if some features have a corrlation between them, maybe they tell a similiar story, maybe their stories complete each other.
+- Some features can be combined together
+- Always think if maybe I'm spending to much time exploring features without enough gain
+
+##### Handling missing values
+- ALWAYS keep training stats when applying to test set. We are trying to predict the future using the past- If I had only one test row coming each time I would have to use only my training stats without questions, same even when they are coming as a full data set.
+- To fill missing values we have a lot of options: Median, Mean, True/False, random based on distibution, "Unknown" and probably many more, the trick is to find each feature what's suit him best (maybe some features could tell us how to handle missing values for other features- "if someone spent money he's not in cryosleep..")
+
+
+### Modeling
+- Start with processing based on EDA
+- Do a data audit- what coloumns do I have? what are their types? It's going to affect directly how I normalize and encode the features.
+- Always use drop_first=True-> you need k-1 binary cols to represent k categories!
+- Always align at the end-> Sometimes there are missing categories at the test set (like "unknown" for something), align makes sure you will have the same number of features in test as in train.
